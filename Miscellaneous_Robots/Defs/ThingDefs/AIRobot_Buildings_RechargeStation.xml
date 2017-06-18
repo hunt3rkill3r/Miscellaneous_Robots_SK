@@ -162,7 +162,8 @@
 	<!-- HK -->
 	<!-- Errors Out since a17 new assembly
 	<ThingDef Class="AIRobot.X2_ThingDef_AIRobot_Building_RechargeStation" ParentName="Base_X2_AIRobotRechargeStation">
-		<defName>AIRobot_RechargeStation_HK</defName><label>Hunter-Killer Station</label>
+		<defName>AIRobot_RechargeStation_HK</defName>
+		<label>Hunter-Killer Station</label>
 		<description>This station holds a HK Bot. Caution advised!</description>
 		<graphicData>
 			<texPath>Things/Building/AIRobot_RechargeStation/StationHK</texPath>
