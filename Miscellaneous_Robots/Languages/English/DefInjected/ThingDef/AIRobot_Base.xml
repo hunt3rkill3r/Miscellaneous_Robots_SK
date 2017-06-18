@@ -4,30 +4,30 @@
 	<AIRobot_MinifiedRechargeStation.label>Base Station</AIRobot_MinifiedRechargeStation.label>
 	<!-- Hauler -->	
 	<AIRobot_Hauler.description>This is a HaulBot. It carries your purchases home and even lifts your new piano up into your room on the 20th floor.</AIRobot_Hauler.description>
-	<AIRobot_RechargeStation_Hauler.label>HaulBot Station™</AIRobot_RechargeStation_Hauler.label>
+	<AIRobot_RechargeStation_Hauler.label>HaulBot Station</AIRobot_RechargeStation_Hauler.label>
 	<AIRobot_RechargeStation_Hauler.description>This station holds a HaulBot.</AIRobot_RechargeStation_Hauler.description>
 	<!-- Cleaner -->
 	<AIRobot_Cleaner.description>This is a JanitorBot. It will clean your base, hide your valuables!.</AIRobot_Cleaner.description>
-	<AIRobot_RechargeStation_Cleaner.label>JanitorBot Station™</AIRobot_RechargeStation_Cleaner.label>
+	<AIRobot_RechargeStation_Cleaner.label>JanitorBot Station</AIRobot_RechargeStation_Cleaner.label>
 	<AIRobot_RechargeStation_Cleaner.description>This station holds a JanitorBot.</AIRobot_RechargeStation_Cleaner.description>
 	<!-- Crafter -->
 	<AIRobot_Crafter.description>This is a CraftBot. Even though it feels no emotions, it seems incredibly sad about working for you.</AIRobot_Crafter.description>
-	<AIRobot_RechargeStation_Crafter.label>CraftBot Station™</AIRobot_RechargeStation_Crafter.label>
+	<AIRobot_RechargeStation_Crafter.label>CraftBot Station</AIRobot_RechargeStation_Crafter.label>
 	<AIRobot_RechargeStation_Crafter.description>This station holds a CraftBot.</AIRobot_RechargeStation_Crafter.description>
 	<!-- Doctor -->
 	<AIRobot_Doctor.description>This is a MedBot. Looks like it has lots of saws and needles, not sure if torture device or doctor.</AIRobot_Doctor.description>
-	<AIRobot_RechargeStation_Doctor.label>MedBot Station™</AIRobot_RechargeStation_Doctor.label>
+	<AIRobot_RechargeStation_Doctor.label>MedBot Station</AIRobot_RechargeStation_Doctor.label>
 	<AIRobot_RechargeStation_Doctor.description>This station holds a MedBot.</AIRobot_RechargeStation_Doctor.description>
 	<!-- Cook -->
 	<AIRobot_Cook.description>This is a CookBot. Spatulas and knives (possibly katanas) included!</AIRobot_Cook.description>
-	<AIRobot_RechargeStation_Cook.label>CookBot Station™</AIRobot_RechargeStation_Cook.label>
+	<AIRobot_RechargeStation_Cook.label>CookBot Station</AIRobot_RechargeStation_Cook.label>
 	<AIRobot_RechargeStation_Cook.description>This station holds a CookBot.</AIRobot_RechargeStation_Cook.description>
 	<!-- Grower -->
 	<AIRobot_Grower.description>This is a HydroponicsBot. Includes a sprinkler for that ASMR effect.</AIRobot_Grower.description>
-	<AIRobot_RechargeStation_Grower.label>HydroponicsBot Station™</AIRobot_RechargeStation_Grower.label>
+	<AIRobot_RechargeStation_Grower.label>HydroponicsBot Station</AIRobot_RechargeStation_Grower.label>
 	<AIRobot_RechargeStation_Grower.description>This station holds a HydroponicsBot. Maybe!</AIRobot_RechargeStation_Grower.description>
 	<!-- Miner -->
 	<AIRobot_Miner.description>This is a MinerBot. What a GoldDigger!</AIRobot_Miner.description>
-	<AIRobot_RechargeStation_Miner.label>MinerBot Station™</AIRobot_RechargeStation_Miner.label>
+	<AIRobot_RechargeStation_Miner.label>MinerBot Station</AIRobot_RechargeStation_Miner.label>
 	<AIRobot_RechargeStation_Miner.description>This station holds a MinerBot. Unless it dug itself out of there.</AIRobot_RechargeStation_Miner.description>
 </LanguageData>
