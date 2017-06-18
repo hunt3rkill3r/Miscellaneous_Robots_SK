@@ -1,21 +1,33 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
 	<name>Misc. Robots</name>
-	<author>Haplo</author>
-	<url>https://ludeon.com/forums/index.php?topic=3612.0</url>
+	<author>HK</author>
+	<url>https://github.com/skyarkhangel/Hardcore-SK</url>
 	<targetVersion>0.17.1557</targetVersion>
-	<description>This mod adds some robots to buy from traders:
+	<description>Hexon Corporation proudly presents a whole new line of Bots to employ in your explorations across the galaxy!
 
-- Haulingbot
-     A small drone to help you hauling stuff around
-- Cleaningbot
-     A small robot to help keeping your home clean  
-	
-	
-Special thanks to mrofa and Vas for the graphics.
-(Version: 0.17.6)
-Language: English, German, Chinese
+This mod adds some Bots for you to purchase from traders or build on your own if you survive long enough!
 
-Thanks to duduluu and Biscuit now with a translation for Chinese (both)
+- HaulBot
+- JanitorBot
+- CraftBot
+- MedBot
+- MinerBot
+- HydroponicsBot
+
+PSA: Due to insane demand the combat issue Hunter-Killer is currently
+unavailable (the rumours that they killed everyone at the production
+facility are of course quite false!)
+
+v1.1
+Modified xml and graphics by hunt3rkill3r
+
+Original mod and code by Haplo
+(https://ludeon.com/forums/index.php?topic=3612.0)
+
+Various original droids concepts and graphics by
+Jabbamonkey, Nephilite, Rooki1, mrofa and Vas.
+
+This mod is to be used within the confines of Hardcore-SK by Skyarkhangel.
 	</description>
 </ModMetaData>
