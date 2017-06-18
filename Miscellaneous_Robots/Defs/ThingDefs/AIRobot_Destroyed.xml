@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ThingDefs>
-
-	<!-- =========== Bases =========== -->
-
+	<!-- Base -->
 	<ThingDef Name="DisabledBase" Abstract="True">
 		<thingClass>AIRobot.X2_AIRobot_disabled</thingClass>
 		<techLevel>Industrial</techLevel>
@@ -36,15 +34,15 @@
 			<li>Robots</li>
 		</thingCategories>
 	</ThingDef>
-
+	<!-- Hauler -->
 	<ThingDef ParentName="DisabledBase">
 		<defName>AIRobot_Hauler_disabled</defName>
-		<label>HaulingBot (disabled)</label>
+		<label>HaulBot (disabled)</label>
 		<description>This is the sad end of a home bot. It's no longer useful and needs heavy repairs or dismantling.</description>
 		<graphicData>
-			<texPath>Things/AIRobot/HoverBot_back</texPath>
+			<texPath>Things/AIRobot/Hauler_back</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1.7,1.7)</drawSize>
+			<drawSize>1</drawSize>
 		</graphicData>
 		<statBases>
 			<WorkToMake>15000</WorkToMake>
@@ -52,37 +50,198 @@
 		</statBases>
 		<soundDrop>ChunkRock_Drop</soundDrop>
 		<butcherProducts>
-			<Steel>25</Steel>
+			<RobotParts>3</RobotParts>
 		</butcherProducts>
-		<costList>
-			<Steel>35</Steel>
-			<Component>5</Component>
-		</costList>
+		<CostList>
+			<RobotParts>15</RobotParts>
+			<AdvMechanism>6</AdvMechanism>
+			<Rubber>10</Rubber>
+			<Plastic>7</Plastic>
+			<Microchips>1</Microchips>
+		</CostList>
 	</ThingDef>
-
+	<!-- Cleaner -->
 	<ThingDef ParentName="DisabledBase">
 		<defName>AIRobot_Cleaner_disabled</defName>
-		<label>CleaningBot (disabled)</label>
+		<label>JanitorBot (disabled)</label>
 		<description>This is the sad end of a home bot. It's no longer useful and needs heavy repairs or dismantling.</description>
 		<graphicData>
-			<texPath>Things/AIRobot/CleaningBot_back</texPath>
+			<texPath>Things/AIRobot/Cleaner_back</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1.7,1.7)</drawSize>
-			<onGroundRandomRotateAngle>45</onGroundRandomRotateAngle>
+			<drawSize>1</drawSize>
 		</graphicData>
 		<statBases>
-			<WorkToMake>25000</WorkToMake>
-			<Mass>20</Mass>
+			<WorkToMake>15000</WorkToMake>
+			<Mass>12</Mass>
 		</statBases>
 		<soundDrop>ChunkRock_Drop</soundDrop>
 		<butcherProducts>
-			<Steel>25</Steel>
+			<RobotParts>3</RobotParts>
 		</butcherProducts>
-		<costList>
-			<Steel>55</Steel>
-			<Component>3</Component>
-		</costList>
+		<CostList>
+			<RobotParts>15</RobotParts>
+			<AdvMechanism>6</AdvMechanism>
+			<Rubber>10</Rubber>
+			<Plastic>7</Plastic>
+			<Microchips>1</Microchips>
+		</CostList>
 	</ThingDef>
-
-
+	<!-- Crafter -->
+	<ThingDef ParentName="DisabledBase">
+		<defName>AIRobot_Crafter_disabled</defName>
+		<label>CraftBot (disabled)</label>
+		<description>This is the sad end of a home bot. It's no longer useful and needs heavy repairs or dismantling.</description>
+		<graphicData>
+			<texPath>Things/AIRobot/Crafter_back</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1</drawSize>
+		</graphicData>
+		<statBases>
+			<WorkToMake>15000</WorkToMake>
+			<Mass>12</Mass>
+		</statBases>
+		<soundDrop>ChunkRock_Drop</soundDrop>
+		<butcherProducts>
+			<RobotParts>3</RobotParts>
+		</butcherProducts>
+		<CostList>
+			<RobotParts>15</RobotParts>
+			<AdvMechanism>6</AdvMechanism>
+			<Rubber>10</Rubber>
+			<Plastic>7</Plastic>
+			<Microchips>1</Microchips>
+		</CostList>
+	</ThingDef>
+	<!-- Doctor -->
+	<ThingDef ParentName="DisabledBase">
+		<defName>AIRobot_Doctor_disabled</defName>
+		<label>MedBot (disabled)</label>
+		<description>This is the sad end of a home bot. It's no longer useful and needs heavy repairs or dismantling.</description>
+		<graphicData>
+			<texPath>Things/AIRobot/Doctor_back</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1</drawSize>
+		</graphicData>
+		<statBases>
+			<WorkToMake>15000</WorkToMake>
+			<Mass>12</Mass>
+		</statBases>
+		<soundDrop>ChunkRock_Drop</soundDrop>
+		<butcherProducts>
+			<RobotParts>3</RobotParts>
+		</butcherProducts>
+		<CostList>
+			<RobotParts>15</RobotParts>
+			<AdvMechanism>6</AdvMechanism>
+			<Rubber>10</Rubber>
+			<Plastic>7</Plastic>
+			<Microchips>1</Microchips>
+		</CostList>
+	</ThingDef>
+	<!-- Cook -->
+	<ThingDef ParentName="DisabledBase">
+		<defName>AIRobot_Cook_disabled</defName>
+		<label>CookBot (disabled)</label>
+		<description>This is the sad end of a home bot. It's no longer useful and needs heavy repairs or dismantling.</description>
+		<graphicData>
+			<texPath>Things/AIRobot/Cook_back</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1</drawSize>
+		</graphicData>
+		<statBases>
+			<WorkToMake>15000</WorkToMake>
+			<Mass>12</Mass>
+		</statBases>
+		<soundDrop>ChunkRock_Drop</soundDrop>
+		<butcherProducts>
+			<RobotParts>3</RobotParts>
+		</butcherProducts>
+		<CostList>
+			<RobotParts>15</RobotParts>
+			<AdvMechanism>6</AdvMechanism>
+			<Rubber>10</Rubber>
+			<Plastic>7</Plastic>
+			<Microchips>1</Microchips>
+		</CostList>
+	</ThingDef>
+	<!-- Grower -->
+	<ThingDef ParentName="DisabledBase">
+		<defName>AIRobot_Grower_disabled</defName>
+		<label>HydroponicsBot (disabled)</label>
+		<description>This is the sad end of a home bot. It's no longer useful and needs heavy repairs or dismantling.</description>
+		<graphicData>
+			<texPath>Things/AIRobot/Grower_back</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1</drawSize>
+		</graphicData>
+		<statBases>
+			<WorkToMake>15000</WorkToMake>
+			<Mass>12</Mass>
+		</statBases>
+		<soundDrop>ChunkRock_Drop</soundDrop>
+		<butcherProducts>
+			<RobotParts>3</RobotParts>
+		</butcherProducts>
+		<CostList>
+			<RobotParts>15</RobotParts>
+			<AdvMechanism>6</AdvMechanism>
+			<Rubber>10</Rubber>
+			<Plastic>7</Plastic>
+			<Microchips>1</Microchips>
+		</CostList>
+	</ThingDef>
+	<!-- Miner -->
+	<ThingDef ParentName="DisabledBase">
+		<defName>AIRobot_Miner_disabled</defName>
+		<label>MinerBot (disabled)</label>
+		<description>This is the sad end of a home bot. It's no longer useful and needs heavy repairs or dismantling.</description>
+		<graphicData>
+			<texPath>Things/AIRobot/Miner_back</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1</drawSize>
+		</graphicData>
+		<statBases>
+			<WorkToMake>15000</WorkToMake>
+			<Mass>12</Mass>
+		</statBases>
+		<soundDrop>ChunkRock_Drop</soundDrop>
+		<butcherProducts>
+			<RobotParts>3</RobotParts>
+		</butcherProducts>
+		<CostList>
+			<RobotParts>15</RobotParts>
+			<AdvMechanism>6</AdvMechanism>
+			<Rubber>10</Rubber>
+			<Plastic>7</Plastic>
+			<Microchips>1</Microchips>
+		</CostList>
+	</ThingDef>
+	<!-- HK -->
+	<!-- Errors Out since a17 new assembly
+	<ThingDef ParentName="DisabledBase">
+		<defName>AIRobot_HK_disabled</defName>
+		<label>Hunter-Killer (disabled)</label>
+		<description>This is the sad end of a home bot. It's no longer useful and needs heavy repairs or dismantling.</description>
+		<graphicData>
+			<texPath>Things/AIRobot/HK_back</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1</drawSize>
+		</graphicData>
+		<statBases>
+			<WorkToMake>15000</WorkToMake>
+			<Mass>12</Mass>
+		</statBases>
+		<soundDrop>ChunkRock_Drop</soundDrop>
+		<butcherProducts>
+			<RobotParts>3</RobotParts>
+		</butcherProducts>
+		<CostList>
+			<RobotParts>15</RobotParts>
+			<AdvMechanism>6</AdvMechanism>
+			<Rubber>10</Rubber>
+			<Plastic>7</Plastic>
+			<Microchips>1</Microchips>
+		</CostList>
+	</ThingDef>
+	-->
 </ThingDefs>

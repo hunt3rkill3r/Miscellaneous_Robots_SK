@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<BodyPartDefs>
+
+	<!-- HKRobot  -->
+
+	<BodyPartDef>
+		<defName>HKRobot_Thorax</defName>
+		<label>Defensive Plates</label>
+		<hitPoints>270</hitPoints>
+		<oldInjuryBaseChance>0</oldInjuryBaseChance>
+		<skinCovered>true</skinCovered>
+		<isSolid>true</isSolid>
+		<dontSuggestAmputation>true</dontSuggestAmputation>
+	</BodyPartDef>
+
+	<BodyPartDef>
+		<defName>HKRobot_ArtificialBrain</defName>
+		<label>Assassin Bot CPU</label>
+		<hitPoints>10</hitPoints>
+		<oldInjuryBaseChance>0</oldInjuryBaseChance>
+		<skinCovered>false</skinCovered>
+		<isSolid>true</isSolid>
+		<isAlive>false</isAlive>
+		<tags>
+			<li>ConsciousnessSource</li>
+			<li>SightSource</li>
+			<li>HearingSource</li>
+			<li>Moving_brain</li>
+			<li>Manipulation_brain</li>
+			<li>Manipulation_humerus</li>
+			<li>Manipulation_radius</li>
+		</tags>
+		<dontSuggestAmputation>true</dontSuggestAmputation>
+	</BodyPartDef>
+
+	<BodyPartDef>
+		<defName>HKRobot_UnneededData</defName>
+		<label>Target Repository</label>
+		<hitPoints>5</hitPoints>
+		<oldInjuryBaseChance>0</oldInjuryBaseChance>
+		<skinCovered>false</skinCovered>
+		<isSolid>true</isSolid>
+		<isAlive>false</isAlive>
+		<tags>
+			<li>BreathingPathway</li>
+		</tags>
+		<dontSuggestAmputation>true</dontSuggestAmputation>
+	</BodyPartDef>
+
+	<BodyPartDef>
+		<defName>HKRobot_CommUnit</defName>
+		<label>Communication Unit</label>
+		<hitPoints>5</hitPoints>
+		<oldInjuryBaseChance>0</oldInjuryBaseChance>
+		<skinCovered>false</skinCovered>
+		<isSolid>true</isSolid>
+		<isAlive>false</isAlive>
+		<tags>
+			<li>TalkingSource</li>
+			<li>TalkingPathway</li>
+		</tags>
+	</BodyPartDef>
+
+	<BodyPartDef>
+		<defName>HKRobot_BatteryLeft</defName>
+		<label>Left battery</label>
+		<hitPoints>50</hitPoints>
+		<oldInjuryBaseChance>0</oldInjuryBaseChance>
+		<skinCovered>false</skinCovered>
+		<isAlive>false</isAlive>
+		<tags>
+			<li>BloodPumpingSource</li>
+			<li>BloodFiltrationSource</li>
+			<li>MetabolismSource</li>
+			<li>BreathingSource</li>
+		</tags>
+	</BodyPartDef>
+
+	<BodyPartDef>
+		<defName>HKRobot_BatteryRight</defName>
+		<label>Right battery</label>
+		<hitPoints>50</hitPoints>
+		<oldInjuryBaseChance>0</oldInjuryBaseChance>
+		<skinCovered>false</skinCovered>
+		<isAlive>false</isAlive>
+		<tags>
+			<li>BloodPumpingSource</li>
+			<li>BloodFiltrationSource</li>
+			<li>MetabolismSource</li>
+			<li>BreathingSource</li>
+		</tags>
+	</BodyPartDef>
+
+	<BodyPartDef>
+		<defName>HKRobot_MaterialAnalyzer</defName>
+		<label>Target Analyzer</label>
+		<hitPoints>10</hitPoints>
+		<oldInjuryBaseChance>0</oldInjuryBaseChance>
+		<skinCovered>false</skinCovered>
+		<isAlive>false</isAlive>
+		<tags>
+			<li>EatingSource</li>
+			<li>EatingPathway</li>
+		</tags>
+	</BodyPartDef>
+
+	<BodyPartDef>
+		<defName>HKRobot_Spine</defName>
+		<label>Tripod Exoskeleton</label>
+		<hitPoints>75</hitPoints>
+		<oldInjuryBaseChance>0</oldInjuryBaseChance>
+		<skinCovered>false</skinCovered>
+		<isSolid>true</isSolid>
+		<isAlive>false</isAlive>
+		<tags>
+			<li>MovingLimbCore</li>
+			<li>ManipulationLimbCore</li>
+		</tags>
+		<dontSuggestAmputation>true</dontSuggestAmputation>
+	</BodyPartDef>
+
+</BodyPartDefs>
+
+

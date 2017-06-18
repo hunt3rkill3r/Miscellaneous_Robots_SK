@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!-- Simple Bots -->
+	<SK.DesignationSubCategoryDef>
+		<defName>SubCategory_Sbots</defName>
+		<label>Simple Bots</label>
+		<description>Simple Bots for menial tasks.</description>
+		<defNames>
+			<li>AIRobot_RechargeStation_Hauler</li>
+			<li>AIRobot_RechargeStation_Cleaner</li>
+			<li>AIRobot_RechargeStation_Cook</li>
+			<li>AIRobot_RechargeStation_Miner</li>
+		</defNames>
+		<designationCategory>Misc</designationCategory>
+		<debug>false</debug>
+	</SK.DesignationSubCategoryDef>
+	<!-- Advanced Bots -->
+	<SK.DesignationSubCategoryDef>
+		<defName>SubCategory_Abots</defName>
+		<label>Advanced Bots</label>
+		<description>Advanced Bots for intricate work.</description>
+		<defNames>
+			<li>AIRobot_RechargeStation_Crafter</li>
+			<li>AIRobot_RechargeStation_Doctor</li>
+			<li>AIRobot_RechargeStation_Grower</li>
+		</defNames>
+		<designationCategory>Misc</designationCategory>
+		<debug>false</debug>
+	</SK.DesignationSubCategoryDef>
+	<!-- Security Bots -->
+	<SK.DesignationSubCategoryDef>
+		<defName>SubCategory_Secbots</defName>
+		<label>Security Bots</label>
+		<description>Security Bots to help defend your colony.</description>
+		<defNames>
+			<li>AIRobot_RechargeStation_HK</li>
+		</defNames>
+		<designationCategory>Security</designationCategory>
+		<debug>false</debug>
+	</SK.DesignationSubCategoryDef>
+</Defs>

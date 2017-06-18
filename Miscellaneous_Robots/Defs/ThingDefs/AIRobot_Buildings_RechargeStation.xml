@@ -1,30 +1,26 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <Defs>
-
-
-	<!--================================ Abstract bases ======================================-->
-
-	<ThingDef Class="AIRobot.X2_ThingDef_AIRobot_Building_RechargeStation" Name="Base_X2_Building_RechargeStation" Abstract="True">
-		<category>Building</category>
-		<soundImpactDefault>BulletImpactMetal</soundImpactDefault>
-		<selectable>true</selectable>
-		<drawerType>MapMeshAndRealTime</drawerType>
-		<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
-		<repairEffect>Repair</repairEffect>
-		<leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
-		<filthLeaving>BuildingRubble</filthLeaving>
-	</ThingDef>
-
+    <!-- Abstract Base -->
+    <ThingDef Class="AIRobot.X2_ThingDef_AIRobot_Building_RechargeStation" Name="Base_X2_Building_RechargeStation" Abstract="True">
+        <category>Building</category>
+        <soundImpactDefault>BulletImpactMetal</soundImpactDefault>
+        <selectable>true</selectable>
+        <drawerType>MapMeshAndRealTime</drawerType>
+        <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+        <repairEffect>Repair</repairEffect>
+        <leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
+        <filthLeaving>BuildingRubble</filthLeaving>
+    </ThingDef>
 	<ThingDef Class="AIRobot.X2_ThingDef_AIRobot_Building_RechargeStation" ParentName="Base_X2_Building_RechargeStation" Name="Base_X2_AIRobotRechargeStation" Abstract="True">
 		<ThingClass>AIRobot.X2_Building_AIRobotRechargeStation</ThingClass>
 		<AltitudeLayer>Building</AltitudeLayer>
 		<passability>Standable</passability>
 		<PathCost>70</PathCost>
-		<CastEdgeShadows>True</CastEdgeShadows>
+		<CastEdgeShadows>False</CastEdgeShadows>
 		<useHitPoints>True</useHitPoints>
 		<Size>(1,1)</Size>
 		<statBases>
-			<Flammability>1.0</Flammability>
+			<Flammability>0.1</Flammability>
 		</statBases>
 		<tickerType>Normal</tickerType>
 		<tradeTags>
@@ -38,37 +34,51 @@
 				<transmitsPower>false</transmitsPower>
 			</li>
 		</comps>
+		<recipeMaker>
+			<workSpeedStat>ElectronicCraftingSpeed</workSpeedStat>
+			<workSkill>Crafting</workSkill>
+			<effectWorking>Smith</effectWorking>
+			<soundWorking>Recipe_Machining</soundWorking>
+			<recipeUsers>
+				<li>RobAssem</li>
+			</recipeUsers>
+			<skillRequirements>
+				<li>
+					<skill>Crafting</skill>
+					<minLevel>15</minLevel>
+				</li>
+			</skillRequirements>
+			<unfinishedThingDef>UnfinishedStation</unfinishedThingDef>
+		</recipeMaker>
 	</ThingDef>
-
-
-
-	<!--================================ Concrete ======================================-->
-
-	<ThingDef Class="AIRobot.X2_ThingDef_AIRobot_Building_RechargeStation" ParentName="Base_X2_AIRobotRechargeStation">
-		<defName>AIRobot_RechargeStation_Hauler</defName>
-		<label>Hauler Base Station</label>
-		<description>This station comes equipped with a specialized robot.</description>
-		<graphicData>
-			<texPath>Things/Building/AIRobot_RechargeStation/AIRobotRechargeStation_HBot</texPath>
-			<graphicClass>Graphic_Multi</graphicClass>
-			<shaderType>CutoutComplex</shaderType>
-			<drawSize>(1,1)</drawSize>
-			<damageData>
-				<rect>(0.05,0.05,0.95,0.95)</rect>
-			</damageData>
-		</graphicData>
-		<minifiedDef>AIRobot_MinifiedRechargeStation</minifiedDef>
-		<fillPercent>0.25</fillPercent>
-		<statBases>
-			<MaxHitPoints>50</MaxHitPoints>
-			<Beauty>0</Beauty>
-			<WorkToMake>5000</WorkToMake>
-			<Mass>10</Mass>
-		</statBases>
-	<stuffCategories>
-		<li>Metallic</li>
-	</stuffCategories>
-	<costStuffCount>150</costStuffCount>
+	<!-- Hauler -->
+    <ThingDef Class="AIRobot.X2_ThingDef_AIRobot_Building_RechargeStation" ParentName="Base_X2_AIRobotRechargeStation">
+        <defName>AIRobot_RechargeStation_Hauler</defName>
+        <label>HaulBot Station</label>
+        <description>This station comes equipped with a haulbot.</description>
+        <graphicData>
+            <texPath>Things/Building/AIRobot_RechargeStation/StationHauler</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <shaderType>CutoutComplex</shaderType>
+            <drawSize>(1.5,1.5)</drawSize>
+			<drawRotated>false</drawRotated>
+            <damageData>
+                <rect>(0.05,0.05,0.95,0.95)</rect>
+            </damageData>
+        </graphicData>
+        <minifiedDef>AIRobot_MinifiedRechargeStation</minifiedDef>
+        <fillPercent>0.25</fillPercent>
+        <statBases>
+            <MaxHitPoints>400</MaxHitPoints>
+            <Beauty>5</Beauty>
+            <WorkToMake>5000</WorkToMake>
+            <Mass>10</Mass>
+        </statBases>
+		<rotatable>false</rotatable>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>150</costStuffCount>
 		<CostList>
 			<RobotParts>15</RobotParts>
 			<AdvMechanism>6</AdvMechanism>
@@ -76,47 +86,375 @@
 			<Plastic>7</Plastic>
 			<Microchips>1</Microchips>
 		</CostList>
-		<secondaryGraphicPath>Things/Building/AIRobot_RechargeStation/AIRobotRechargeStation_Empty1</secondaryGraphicPath>
-		<spawnThingDef>AIRobot_Hauler</spawnThingDef>
-		<rechargeEfficiency>1.0</rechargeEfficiency>
-		<researchPrerequisites><li>SK_Robotics</li></researchPrerequisites>
-	</ThingDef>
-
-	<ThingDef Class="AIRobot.X2_ThingDef_AIRobot_Building_RechargeStation" ParentName="Base_X2_AIRobotRechargeStation">
-		<defName>AIRobot_RechargeStation_Cleaner</defName>
-		<label>Cleaner Base Station</label>
-		<description>This station comes equipped with a specialized robot.</description>
-		<graphicData>
-			<texPath>Things/Building/AIRobot_RechargeStation/AIRobotRechargeStation_CBot</texPath>
-			<graphicClass>Graphic_Multi</graphicClass>
-			<shaderType>CutoutComplex</shaderType>
-			<drawSize>(1,1)</drawSize>
-			<damageData>
-				<rect>(0.05,0.05,0.95,0.95)</rect>
-			</damageData>
-		</graphicData>
-		<minifiedDef>AIRobot_MinifiedRechargeStation</minifiedDef>
-		<fillPercent>0.25</fillPercent>
-		<statBases>
-			<MaxHitPoints>70</MaxHitPoints>
-			<Beauty>0</Beauty>
-			<WorkToMake>6000</WorkToMake>
-			<Mass>13</Mass>
-		</statBases>
-	<stuffCategories>
-		<li>Metallic</li>
-	</stuffCategories>
-	<costStuffCount>150</costStuffCount>
+        <!-- Preferable Costlist
+		<CostList>
+			<Titanium>100</Titanium>
+            <RobotParts>15</RobotParts>
+            <AdvMechanism>5</AdvMechanism>
+            <Rubber>10</Rubber>
+            <Plastic>10</Plastic>
+            <Microchips>1</Microchips>
+        </CostList>
+		-->
+        <secondaryGraphicPath>Things/Building/AIRobot_RechargeStation/HaulerStationEmpty</secondaryGraphicPath>
+        <spawnThingDef>AIRobot_Hauler</spawnThingDef>
+        <rechargeEfficiency>1.0</rechargeEfficiency>
+        <researchPrerequisites>
+            <li>SK_Robotics</li>
+        </researchPrerequisites>
+    </ThingDef>
+	<!-- Cleaner -->
+    <ThingDef Class="AIRobot.X2_ThingDef_AIRobot_Building_RechargeStation" ParentName="Base_X2_AIRobotRechargeStation">
+        <defName>AIRobot_RechargeStation_Cleaner</defName>
+        <label>JanitorBot Station</label>
+        <description>This station holds a janitorbot</description>
+        <graphicData>
+            <texPath>Things/Building/AIRobot_RechargeStation/StationCleaner</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <shaderType>CutoutComplex</shaderType>
+            <drawSize>(1.5,1.5)</drawSize>
+			<drawRotated>false</drawRotated>
+            <damageData>
+                <rect>(0.05,0.05,0.95,0.95)</rect>
+            </damageData>
+        </graphicData>
+        <minifiedDef>AIRobot_MinifiedRechargeStation</minifiedDef>
+        <fillPercent>0.25</fillPercent>
+        <statBases>
+            <MaxHitPoints>400</MaxHitPoints>
+            <Beauty>5</Beauty>
+            <WorkToMake>5000</WorkToMake>
+            <Mass>10</Mass>
+        </statBases>
+		<rotatable>false</rotatable>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>150</costStuffCount>
 		<CostList>
 			<RobotParts>15</RobotParts>
-			<Rubber>30</Rubber>
-			<Plastic>50</Plastic>
+			<AdvMechanism>6</AdvMechanism>
+			<Rubber>10</Rubber>
+			<Plastic>7</Plastic>
 			<Microchips>1</Microchips>
 		</CostList>
-		<secondaryGraphicPath>Things/Building/AIRobot_RechargeStation/AIRobotRechargeStation_Empty1</secondaryGraphicPath>
-		<spawnThingDef>AIRobot_Cleaner</spawnThingDef>
-		<rechargeEfficiency>1.0</rechargeEfficiency>
-		<researchPrerequisites><li>SK_Robotics</li></researchPrerequisites>
-	</ThingDef>
-
+        <!-- Preferable Costlist
+		<CostList>
+			<Titanium>100</Titanium>
+            <RobotParts>15</RobotParts>
+            <AdvMechanism>5</AdvMechanism>
+            <Rubber>10</Rubber>
+            <Plastic>10</Plastic>
+            <Microchips>1</Microchips>
+        </CostList>
+		-->
+        <secondaryGraphicPath>Things/Building/AIRobot_RechargeStation/CleanerStationEmpty</secondaryGraphicPath>
+        <spawnThingDef>AIRobot_Cleaner</spawnThingDef>
+        <rechargeEfficiency>1.0</rechargeEfficiency>
+        <researchPrerequisites>
+            <li>SK_Robotics</li>
+        </researchPrerequisites>
+    </ThingDef>
+	<!-- Crafter -->
+    <ThingDef Class="AIRobot.X2_ThingDef_AIRobot_Building_RechargeStation" ParentName="Base_X2_AIRobotRechargeStation">
+        <defName>AIRobot_RechargeStation_Crafter</defName>
+        <label>CraftBot Station</label>
+        <description>This station holds a craftbot. Even though he feels no emotions, he feels incredibly sad about working for you.</description>
+        <graphicData>
+            <texPath>Things/Building/AIRobot_RechargeStation/StationCrafter</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <shaderType>CutoutComplex</shaderType>
+            <drawSize>(1.5,1.5)</drawSize>
+			<drawRotated>false</drawRotated>
+            <damageData>
+                <rect>(0.05,0.05,0.95,0.95)</rect>
+            </damageData>
+        </graphicData>
+        <minifiedDef>AIRobot_MinifiedRechargeStation</minifiedDef>
+        <fillPercent>0.25</fillPercent>
+        <statBases>
+            <MaxHitPoints>400</MaxHitPoints>
+            <Beauty>5</Beauty>
+            <WorkToMake>5000</WorkToMake>
+            <Mass>10</Mass>
+        </statBases>
+		<rotatable>false</rotatable>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>150</costStuffCount>
+		<CostList>
+			<RobotParts>15</RobotParts>
+			<AdvMechanism>6</AdvMechanism>
+			<Rubber>10</Rubber>
+			<Plastic>7</Plastic>
+			<Microchips>1</Microchips>
+		</CostList>
+        <!-- Preferable Costlist
+		<CostList>
+			<Titanium>100</Titanium>
+            <RobotParts>15</RobotParts>
+            <AdvMechanism>5</AdvMechanism>
+            <Rubber>10</Rubber>
+            <Plastic>10</Plastic>
+            <Microchips>1</Microchips>
+        </CostList>
+		-->
+        <secondaryGraphicPath>Things/Building/AIRobot_RechargeStation/CrafterStationEmpty</secondaryGraphicPath>
+        <spawnThingDef>AIRobot_Crafter</spawnThingDef>
+        <rechargeEfficiency>1.0</rechargeEfficiency>
+        <researchPrerequisites>
+            <li>SK_Robotics</li>
+        </researchPrerequisites>
+    </ThingDef>
+	<!-- Doctor -->
+    <ThingDef Class="AIRobot.X2_ThingDef_AIRobot_Building_RechargeStation" ParentName="Base_X2_AIRobotRechargeStation">
+        <defName>AIRobot_RechargeStation_Doctor</defName>
+        <label>MedBot Station</label>
+        <description>This station holds a medbot. This one looks like he has lots of saws an needles, not sure if torture device or doctor.</description>
+        <graphicData>
+            <texPath>Things/Building/AIRobot_RechargeStation/StationDoctor</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <shaderType>CutoutComplex</shaderType>
+            <drawSize>(1.5,1.5)</drawSize>
+			<drawRotated>false</drawRotated>
+            <damageData>
+                <rect>(0.05,0.05,0.95,0.95)</rect>
+            </damageData>
+        </graphicData>
+        <minifiedDef>AIRobot_MinifiedRechargeStation</minifiedDef>
+        <fillPercent>0.25</fillPercent>
+        <statBases>
+            <MaxHitPoints>400</MaxHitPoints>
+            <Beauty>5</Beauty>
+            <WorkToMake>5000</WorkToMake>
+            <Mass>10</Mass>
+        </statBases>
+		<rotatable>false</rotatable>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>150</costStuffCount>
+		<CostList>
+			<RobotParts>15</RobotParts>
+			<AdvMechanism>6</AdvMechanism>
+			<Rubber>10</Rubber>
+			<Plastic>7</Plastic>
+			<Microchips>1</Microchips>
+		</CostList>
+        <!-- Preferable Costlist
+		<CostList>
+			<Titanium>100</Titanium>
+            <RobotParts>15</RobotParts>
+            <AdvMechanism>5</AdvMechanism>
+            <Rubber>10</Rubber>
+            <Plastic>10</Plastic>
+            <Microchips>1</Microchips>
+        </CostList>
+		-->
+        <secondaryGraphicPath>Things/Building/AIRobot_RechargeStation/DoctorStationEmpty</secondaryGraphicPath>
+        <spawnThingDef>AIRobot_Doctor</spawnThingDef>
+        <rechargeEfficiency>1.0</rechargeEfficiency>
+        <researchPrerequisites>
+            <li>SK_Robotics</li>
+        </researchPrerequisites>
+    </ThingDef>
+	<!-- Cook -->
+    <ThingDef Class="AIRobot.X2_ThingDef_AIRobot_Building_RechargeStation" ParentName="Base_X2_AIRobotRechargeStation">
+        <defName>AIRobot_RechargeStation_Cook</defName>
+        <label>CookBot Station</label>
+        <description>This station holds a cookbot. Spatulas and knives included!</description>
+        <graphicData>
+            <texPath>Things/Building/AIRobot_RechargeStation/StationCook</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <shaderType>CutoutComplex</shaderType>
+            <drawSize>(1.5,1.5)</drawSize>
+			<drawRotated>false</drawRotated>
+            <damageData>
+                <rect>(0.05,0.05,0.95,0.95)</rect>
+            </damageData>
+        </graphicData>
+        <minifiedDef>AIRobot_MinifiedRechargeStation</minifiedDef>
+        <fillPercent>0.25</fillPercent>
+        <statBases>
+            <MaxHitPoints>400</MaxHitPoints>
+            <Beauty>5</Beauty>
+            <WorkToMake>5000</WorkToMake>
+            <Mass>10</Mass>
+        </statBases>
+		<rotatable>false</rotatable>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>150</costStuffCount>
+		<CostList>
+			<RobotParts>15</RobotParts>
+			<AdvMechanism>6</AdvMechanism>
+			<Rubber>10</Rubber>
+			<Plastic>7</Plastic>
+			<Microchips>1</Microchips>
+		</CostList>
+        <!-- Preferable Costlist
+		<CostList>
+			<Titanium>100</Titanium>
+            <RobotParts>15</RobotParts>
+            <AdvMechanism>5</AdvMechanism>
+            <Rubber>10</Rubber>
+            <Plastic>10</Plastic>
+            <Microchips>1</Microchips>
+        </CostList>
+		-->
+        <secondaryGraphicPath>Things/Building/AIRobot_RechargeStation/CookStationEmpty</secondaryGraphicPath>
+        <spawnThingDef>AIRobot_Cook</spawnThingDef>
+        <rechargeEfficiency>1.0</rechargeEfficiency>
+        <researchPrerequisites>
+            <li>SK_Robotics</li>
+        </researchPrerequisites>
+    </ThingDef>
+	<!-- Grower -->
+    <ThingDef Class="AIRobot.X2_ThingDef_AIRobot_Building_RechargeStation" ParentName="Base_X2_AIRobotRechargeStation">
+        <defName>AIRobot_RechargeStation_Grower</defName>
+        <label>HydroponicsBot Station</label>
+        <description>This station holds a hydroponicsbot. Includes a sprinkler for that ASMR effect.</description>
+        <graphicData>
+            <texPath>Things/Building/AIRobot_RechargeStation/StationGrower</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <shaderType>CutoutComplex</shaderType>
+            <drawSize>(1.5,1.5)</drawSize>
+			<drawRotated>false</drawRotated>
+            <damageData>
+                <rect>(0.05,0.05,0.95,0.95)</rect>
+            </damageData>
+        </graphicData>
+        <minifiedDef>AIRobot_MinifiedRechargeStation</minifiedDef>
+        <fillPercent>0.25</fillPercent>
+        <statBases>
+            <MaxHitPoints>400</MaxHitPoints>
+            <Beauty>5</Beauty>
+            <WorkToMake>5000</WorkToMake>
+            <Mass>10</Mass>
+        </statBases>
+		<rotatable>false</rotatable>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>150</costStuffCount>
+		<CostList>
+			<RobotParts>15</RobotParts>
+			<AdvMechanism>6</AdvMechanism>
+			<Rubber>10</Rubber>
+			<Plastic>7</Plastic>
+			<Microchips>1</Microchips>
+		</CostList>
+        <!-- Preferable Costlist
+		<CostList>
+			<Titanium>100</Titanium>
+            <RobotParts>15</RobotParts>
+            <AdvMechanism>5</AdvMechanism>
+            <Rubber>10</Rubber>
+            <Plastic>10</Plastic>
+            <Microchips>1</Microchips>
+        </CostList>
+		-->
+        <secondaryGraphicPath>Things/Building/AIRobot_RechargeStation/GrowerStationEmpty</secondaryGraphicPath>
+        <spawnThingDef>AIRobot_Grower</spawnThingDef>
+        <rechargeEfficiency>1.0</rechargeEfficiency>
+        <researchPrerequisites>
+            <li>SK_Robotics</li>
+        </researchPrerequisites>
+    </ThingDef>
+	<!-- Miner -->
+    <ThingDef Class="AIRobot.X2_ThingDef_AIRobot_Building_RechargeStation" ParentName="Base_X2_AIRobotRechargeStation">
+        <defName>AIRobot_RechargeStation_Miner</defName>
+        <label>MinerBot Station</label>
+        <description>This station holds a minerbot. What a golddigger!</description>
+        <graphicData>
+            <texPath>Things/Building/AIRobot_RechargeStation/StationMiner</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <shaderType>CutoutComplex</shaderType>
+            <drawSize>(1.5,1.5)</drawSize>
+			<drawRotated>false</drawRotated>
+            <damageData>
+                <rect>(0.05,0.05,0.95,0.95)</rect>
+            </damageData>
+        </graphicData>
+        <minifiedDef>AIRobot_MinifiedRechargeStation</minifiedDef>
+        <fillPercent>0.25</fillPercent>
+        <statBases>
+            <MaxHitPoints>400</MaxHitPoints>
+            <Beauty>5</Beauty>
+            <WorkToMake>5000</WorkToMake>
+            <Mass>10</Mass>
+        </statBases>
+		<rotatable>false</rotatable>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>150</costStuffCount>
+		<CostList>
+			<RobotParts>15</RobotParts>
+			<AdvMechanism>6</AdvMechanism>
+			<Rubber>10</Rubber>
+			<Plastic>7</Plastic>
+			<Microchips>1</Microchips>
+		</CostList>
+        <!-- Preferable Costlist
+		<CostList>
+			<Titanium>100</Titanium>
+            <RobotParts>15</RobotParts>
+            <AdvMechanism>5</AdvMechanism>
+            <Rubber>10</Rubber>
+            <Plastic>10</Plastic>
+            <Microchips>1</Microchips>
+        </CostList>
+		-->
+        <secondaryGraphicPath>Things/Building/AIRobot_RechargeStation/MinerStationEmpty</secondaryGraphicPath>
+        <spawnThingDef>AIRobot_Miner</spawnThingDef>
+        <rechargeEfficiency>1.0</rechargeEfficiency>
+        <researchPrerequisites>
+            <li>SK_Robotics</li>
+        </researchPrerequisites>
+    </ThingDef>
+	<!-- Hunter-Killer -->
+	<!-- Errors Out since a17 new assembly
+	<ThingDef Class="AIRobot.X2_ThingDef_AIRobot_Building_RechargeStation" ParentName="Base_X2_AIRobotRechargeStation">
+        <defName>AIRobot_RechargeStation_HK</defName>
+        <label>Hunter-Killer Station</label>
+        <description>This station holds a HK Bot. Caution advised!</description>
+        <graphicData>
+            <texPath>Things/Building/AIRobot_RechargeStation/StationHK</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <shaderType>CutoutComplex</shaderType>
+            <drawSize>(1.5,1.5)</drawSize>
+			<drawRotated>false</drawRotated>
+            <damageData>
+                <rect>(0.05,0.05,0.95,0.95)</rect>
+            </damageData>
+        </graphicData>
+        <minifiedDef>AIRobot_MinifiedRechargeStation</minifiedDef>
+        <fillPercent>0.25</fillPercent>
+        <statBases>
+            <MaxHitPoints>400</MaxHitPoints>
+            <Beauty>5</Beauty>
+            <WorkToMake>5000</WorkToMake>
+            <Mass>10</Mass>
+        </statBases>
+		<rotatable>false</rotatable>
+		<CostList>
+			<Titanium>300</Titanium>
+            <RobotParts>50</RobotParts>
+            <AdvMechanism>5</AdvMechanism>
+            <Rubber>10</Rubber>
+            <Plastic>10</Plastic>
+            <Microchips>1</Microchips>
+			<AIPersonaCore>1</AIPersonaCore>
+        </CostList>
+        <secondaryGraphicPath>Things/Building/AIRobot_RechargeStation/HKStationEmpty</secondaryGraphicPath>
+        <spawnThingDef>AIRobot_HK</spawnThingDef>
+        <rechargeEfficiency>1.0</rechargeEfficiency>
+        <researchPrerequisites>
+            <li>SK_Robotics</li>
+        </researchPrerequisites>
+    </ThingDef>
+	-->
 </Defs>
