@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ThingDefs>
 	<!-- Abstract -->
-	<ThingDef Class="AIRobot.X2_ThingDef_AIRobot" Name="Base_X2_AIRobot" Abstract="True">
+	<Verse.ThingDef Class="AIRobot.X2_ThingDef_AIRobot" Name="Base_X2_AIRobot" Abstract="True">
 		<thingClass>AIRobot.X2_AIRobot</thingClass>
         <category>Pawn</category>
         <selectable>true</selectable>
@@ -11,11 +11,20 @@
         <hasTooltip>true</hasTooltip>
         <soundImpactDefault>BulletImpactMetal</soundImpactDefault>
 		<statBases>
+			<MarketValue>1300</MarketValue>
 			<Flammability>0.1</Flammability><!-- 1.0 -->
 			<LeatherAmount>0</LeatherAmount>
 			<PsychicSensitivity>0</PsychicSensitivity>
 			<ToxicSensitivity>0</ToxicSensitivity>
 			<Mass>15</Mass>
+			<ComfyTemperatureMin>-100</ComfyTemperatureMin>
+			<ComfyTemperatureMax>100</ComfyTemperatureMax>
+			<MeleeWeapon_Penetration>1</MeleeWeapon_Penetration>
+			<CarryWeight>250</CarryWeight>
+			<CarryBulk>120</CarryBulk>
+			<MeleeDodgeChance>0.1</MeleeDodgeChance>
+			<MeleeCritChance>0.15</MeleeCritChance>
+			<WorkSpeedGlobal>1.4</WorkSpeedGlobal>
 		</statBases>
 		<inspectorTabs>
 			<li>ITab_Pawn_Health</li>
@@ -34,21 +43,45 @@
                 <compClass>CompAttachBase</compClass>
             </li>
         </comps>
+		<modExtensions>
+			<li Class="CombatExtended.RacePropertiesExtensionCE">
+				<bodyShape>Humanoid</bodyShape>
+			</li>
+		</modExtensions>
         <drawGUIOverlay>true</drawGUIOverlay>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<verbClass>CombatExtended.Verb_MeleeAttackCE</verbClass>
+				<defaultCooldownTime>1.85</defaultCooldownTime>
+				<meleeDamageBaseAmount>6</meleeDamageBaseAmount>
+				<meleeDamageDef>Blunt</meleeDamageDef>
+				<linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
+				<meleeArmorPenetration>0.08</meleeArmorPenetration>
+			</li>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<verbClass>CombatExtended.Verb_MeleeAttackCE</verbClass>
+				<defaultCooldownTime>1.85</defaultCooldownTime>
+				<meleeDamageBaseAmount>6</meleeDamageBaseAmount>
+				<meleeDamageDef>Blunt</meleeDamageDef>
+				<linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
+				<meleeArmorPenetration>0.08</meleeArmorPenetration>
+			</li>
+		</verbs>
 		<race>
 			<thinkTreeMain>X2_AIRobot</thinkTreeMain>
 			<thinkTreeConstant>X2_AIRobotConstant</thinkTreeConstant>
 			<fleshType>Mechanoid</fleshType>
 			<!-- <foodType>OmnivoreRoughAnimal</foodType> -->
 			<foodType>None</foodType>
-			<!-- other jobs require
 			<intelligence>Animal</intelligence>
 			<wildness>0.1</wildness>
-			-->
-			<intelligence>ToolUser</intelligence>
 			<makesFootprints>false</makesFootprints>
 			<nameCategory>HumanStandard</nameCategory>
 			<mateMtbHours>0</mateMtbHours>
+			<body>AIRobot</body>
+			<baseBodySize>0.8</baseBodySize>
+			<baseHungerRate>0.5</baseHungerRate>
+			<baseHealthScale>0.6</baseHealthScale>
 			<ageGenerationCurve>
 				<points>
 					<li>(0,100)</li>
@@ -68,34 +101,16 @@
 			<soundMeleeHitBuilding>Pawn_Melee_MechanoidBash_HitBuilding</soundMeleeHitBuilding>
 			<soundMeleeMiss>Pawn_Melee_MechanoidBash_Miss</soundMeleeMiss>
 		</race>
-	</ThingDef>
+	</Verse.ThingDef>
     <!-- Hauler -->
-	<ThingDef Class="AIRobot.X2_ThingDef_AIRobot" ParentName="Base_X2_AIRobot">
+	<Verse.ThingDef Class="AIRobot.X2_ThingDef_AIRobot" ParentName="Base_X2_AIRobot">
 		<defName>AIRobot_Hauler</defName>
         <label>HaulBot</label>
         <description>A HaulBot.</description>
         <uiIconPath>Things/Pawn/Humanlike/UI/IconHuman</uiIconPath>
 		<statBases>
-			<MarketValue>1300</MarketValue>
-			<MoveSpeed>5.85</MoveSpeed>
-			<ComfyTemperatureMin>-100</ComfyTemperatureMin>
-			<ComfyTemperatureMax>100</ComfyTemperatureMax>
+			<MoveSpeed>6.20</MoveSpeed>
 		</statBases>
-        <verbs>
-            <li>
-                <verbClass>Verb_MeleeAttack</verbClass>
-                <defaultCooldownTime>1.25</defaultCooldownTime>
-                <meleeDamageBaseAmount>1</meleeDamageBaseAmount>
-                <meleeDamageDef>Blunt</meleeDamageDef>
-                <linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
-            </li>
-        </verbs>
-		<race>
-			<body>AIRobot</body>
-			<baseBodySize>0.6</baseBodySize>
-			<baseHungerRate>0.5</baseHungerRate>
-			<baseHealthScale>0.6</baseHealthScale>
-		</race>
 		<recipes>
 		</recipes>
 		<robotWorkTypes>
@@ -106,34 +121,16 @@
 		</robotWorkTypes>
 		<destroyedDef>AIRobot_Hauler_disabled</destroyedDef>
 		<allowLearning>false</allowLearning>
-	</ThingDef>
+	</Verse.ThingDef>
 	<!-- Cleaner -->
-    <ThingDef Class="AIRobot.X2_ThingDef_AIRobot" ParentName="Base_X2_AIRobot">
+    <Verse.ThingDef Class="AIRobot.X2_ThingDef_AIRobot" ParentName="Base_X2_AIRobot">
         <defName>AIRobot_Cleaner</defName>
         <label>JanitorBot</label>
         <description>A JanitorBot.</description>
         <uiIconPath>Things/Pawn/Humanlike/UI/IconHuman</uiIconPath>
 		<statBases>
-			<MarketValue>700</MarketValue>
-			<MoveSpeed>2.0</MoveSpeed>
-			<ComfyTemperatureMin>-100</ComfyTemperatureMin>
-			<ComfyTemperatureMax>100</ComfyTemperatureMax>
+			<MoveSpeed>2.8</MoveSpeed>
 		</statBases>
-        <verbs>
-            <li>
-                <verbClass>Verb_MeleeAttack</verbClass>
-                <defaultCooldownTime>1.25</defaultCooldownTime>
-                <meleeDamageBaseAmount>1</meleeDamageBaseAmount>
-                <meleeDamageDef>Blunt</meleeDamageDef>
-                <linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
-            </li>
-        </verbs>
-		<race>
-			<body>AIRobot</body>
-			<baseBodySize>0.6</baseBodySize>
-			<baseHungerRate>0.5</baseHungerRate>
-			<baseHealthScale>0.6</baseHealthScale>
-		</race>
 		<recipes>
 		</recipes>
 		<robotWorkTypes>
@@ -155,34 +152,25 @@
 		</robotSkills>
 		<destroyedDef>AIRobot_Cleaner_disabled</destroyedDef>
 		<allowLearning>false</allowLearning>
-	</ThingDef>
+	</Verse.ThingDef>
 	<!-- Crafter -->
-    <ThingDef Class="AIRobot.X2_ThingDef_AIRobot" ParentName="Base_X2_AIRobot">
+    <Verse.ThingDef Class="AIRobot.X2_ThingDef_AIRobot" ParentName="Base_X2_AIRobot">
 	    <defName>AIRobot_Crafter</defName>
         <label>CraftBot</label>
         <description>A CraftBot. WARNING:Crafty!</description>
         <uiIconPath>Things/Pawn/Humanlike/UI/IconHuman</uiIconPath>
         <statBases>
-            <MarketValue>2000</MarketValue>
+            <MarketValue>3000</MarketValue>
             <MoveSpeed>3.85</MoveSpeed>
-			<ComfyTemperatureMin>-100</ComfyTemperatureMin>
-			<ComfyTemperatureMax>100</ComfyTemperatureMax>
+			<SmithingSpeed>0.22</SmithingSpeed>
+			<SmeltingSpeed>0.35</SmeltingSpeed>
+			<StonecuttingSpeed>0.4</StonecuttingSpeed>
+			<!--
+			<SmoothingSpeed>0.12</SmoothingSpeed>
+			<SculptingSpeed>0.15</SculptingSpeed>
+			<TailoringSpeed>0.10</TailoringSpeed>
+			-->
 		</statBases>
-        <verbs>
-            <li>
-                <verbClass>Verb_MeleeAttack</verbClass>
-                <defaultCooldownTime>1.25</defaultCooldownTime>
-                <meleeDamageBaseAmount>1</meleeDamageBaseAmount>
-                <meleeDamageDef>Blunt</meleeDamageDef>
-                <linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
-            </li>
-        </verbs>
-		<race>
-			<body>AIRobot</body>
-			<baseBodySize>0.6</baseBodySize>
-			<baseHungerRate>0.5</baseHungerRate>
-			<baseHealthScale>0.6</baseHealthScale>
-		</race>
 		<recipes>
 		</recipes>
 		<robotWorkTypes>
@@ -209,34 +197,21 @@
 		</robotSkills>
 		<destroyedDef>AIRobot_Crafter_disabled</destroyedDef>
 		<allowLearning>false</allowLearning>
-	</ThingDef>
+	</Verse.ThingDef>
 	<!-- Doctor -->
-    <ThingDef Class="AIRobot.X2_ThingDef_AIRobot" ParentName="Base_X2_AIRobot">
+    <Verse.ThingDef Class="AIRobot.X2_ThingDef_AIRobot" ParentName="Base_X2_AIRobot">
         <defName>AIRobot_Doctor</defName>
         <label>MedBot</label>
         <description>A MedBot, for all your poking needs!</description>
 		<uiIconPath>Things/Pawn/Humanlike/UI/IconHuman</uiIconPath>
         <statBases>
-            <MarketValue>2000</MarketValue>
+            <MarketValue>4000</MarketValue>
             <MoveSpeed>4.50</MoveSpeed>
-			<ComfyTemperatureMin>-100</ComfyTemperatureMin>
-			<ComfyTemperatureMax>100</ComfyTemperatureMax>
+			<MedicalOperationSpeed>0.5</MedicalOperationSpeed>
+			<MedicalSurgerySuccessChance>0.8</MedicalSurgerySuccessChance>
+			<MedicalTendSpeed>0.5</MedicalTendSpeed>
+			<MedicalTendQuality>0.55</MedicalTendQuality>
 		</statBases>
-        <verbs>
-            <li>
-                <verbClass>Verb_MeleeAttack</verbClass>
-                <defaultCooldownTime>1.25</defaultCooldownTime>
-                <meleeDamageBaseAmount>1</meleeDamageBaseAmount>
-                <meleeDamageDef>Blunt</meleeDamageDef>
-                <linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
-            </li>
-        </verbs>
-		<race>
-			<body>AIRobot</body>
-			<baseBodySize>0.6</baseBodySize>
-			<baseHungerRate>0.5</baseHungerRate>
-			<baseHealthScale>0.6</baseHealthScale>
-		</race>
 		<recipes>
 		</recipes>
 		<robotWorkTypes>
@@ -263,34 +238,21 @@
 		</robotSkills>
 		<destroyedDef>AIRobot_Doctor_disabled</destroyedDef>
 		<allowLearning>false</allowLearning>
-	</ThingDef>
+	</Verse.ThingDef>
 	<!-- Cook -->
-    <ThingDef Class="AIRobot.X2_ThingDef_AIRobot" ParentName="Base_X2_AIRobot">
+    <Verse.ThingDef Class="AIRobot.X2_ThingDef_AIRobot" ParentName="Base_X2_AIRobot">
 		<defName>AIRobot_Cook</defName>
 			<label>CookBot</label>
 			<description>A CookBot. Enjoy that 1% poison in your dishes.</description>
 			<uiIconPath>Things/Pawn/Humanlike/UI/IconHuman</uiIconPath>
 	    <statBases>
-            <MarketValue>1300</MarketValue>
             <MoveSpeed>4.50</MoveSpeed>
-			<ComfyTemperatureMin>-100</ComfyTemperatureMin>
-			<ComfyTemperatureMax>100</ComfyTemperatureMax>
+			<CookSpeed>0.2</CookSpeed>
+			<ButcheryFleshSpeed>0.2</ButcheryFleshSpeed>
+			<FoodPoisonChance>-0.3</FoodPoisonChance>
+			<BrewingSpeed>0.15</BrewingSpeed>
+			<ButcheryFleshEfficiency>0.25</ButcheryFleshEfficiency>
 		</statBases>
-        <verbs>
-            <li>
-                <verbClass>Verb_MeleeAttack</verbClass>
-                <defaultCooldownTime>1.25</defaultCooldownTime>
-                <meleeDamageBaseAmount>1</meleeDamageBaseAmount>
-                <meleeDamageDef>Blunt</meleeDamageDef>
-                <linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
-            </li>
-        </verbs>
-		<race>
-			<body>AIRobot</body>
-			<baseBodySize>0.6</baseBodySize>
-			<baseHungerRate>0.5</baseHungerRate>
-			<baseHealthScale>0.6</baseHealthScale>
-		</race>
 		<recipes>
 		</recipes>
 		<robotWorkTypes>
@@ -313,34 +275,17 @@
 		</robotSkills>
 		<destroyedDef>AIRobot_Cook_disabled</destroyedDef>
 		<allowLearning>false</allowLearning>
-	</ThingDef>
+	</Verse.ThingDef>
 	<!-- Grower -->
-	<ThingDef Class="AIRobot.X2_ThingDef_AIRobot" ParentName="Base_X2_AIRobot">
+	<Verse.ThingDef Class="AIRobot.X2_ThingDef_AIRobot" ParentName="Base_X2_AIRobot">
 		<defName>AIRobot_Grower</defName>
         <label>HydroponicsBot</label>
         <description>A HydroponicsBot. He smells like smokeleaf.</description>
 		<uiIconPath>Things/Pawn/Humanlike/UI/IconHuman</uiIconPath>
 	    <statBases>
-            <MarketValue>1800</MarketValue>
             <MoveSpeed>4.80</MoveSpeed>
-			<ComfyTemperatureMin>-100</ComfyTemperatureMin>
-			<ComfyTemperatureMax>100</ComfyTemperatureMax>
+			<PlantWorkSpeed>3</PlantWorkSpeed>
 		</statBases>
-        <verbs>
-            <li>
-                <verbClass>Verb_MeleeAttack</verbClass>
-                <defaultCooldownTime>1.25</defaultCooldownTime>
-                <meleeDamageBaseAmount>1</meleeDamageBaseAmount>
-                <meleeDamageDef>Blunt</meleeDamageDef>
-                <linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
-            </li>
-        </verbs>
-		<race>
-			<body>AIRobot</body>
-			<baseBodySize>0.6</baseBodySize>
-			<baseHungerRate>0.5</baseHungerRate>
-			<baseHealthScale>0.6</baseHealthScale>
-		</race>
 		<recipes>
 		</recipes>
 		<robotWorkTypes>
@@ -362,35 +307,17 @@
 		</robotSkills>
 		<destroyedDef>AIRobot_Grower_disabled</destroyedDef>
 		<allowLearning>false</allowLearning>
-	</ThingDef>
+	</Verse.ThingDef>
 	<!-- Miner -->
-	<ThingDef Class="AIRobot.X2_ThingDef_AIRobot" ParentName="Base_X2_AIRobot">
+	<Verse.ThingDef Class="AIRobot.X2_ThingDef_AIRobot" ParentName="Base_X2_AIRobot">
 	    <defName>AIRobot_Miner</defName>
         <label>MinerBot</label>
         <description>A MinerBot. So Shiny!</description>
         <uiIconPath>Things/Pawn/Humanlike/UI/IconHuman</uiIconPath>
 		<statBases>
-            <MarketValue>1800</MarketValue>
-			<MiningSpeed>0.5</MiningSpeed>
+			<MiningSpeed>4.5</MiningSpeed>
             <MoveSpeed>4.80</MoveSpeed>
-			<ComfyTemperatureMin>-100</ComfyTemperatureMin>
-			<ComfyTemperatureMax>100</ComfyTemperatureMax>
 		</statBases>
-        <verbs>
-            <li>
-                <verbClass>Verb_MeleeAttack</verbClass>
-                <defaultCooldownTime>1.25</defaultCooldownTime>
-                <meleeDamageBaseAmount>1</meleeDamageBaseAmount>
-                <meleeDamageDef>Blunt</meleeDamageDef>
-                <linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
-            </li>
-        </verbs>
-		<race>
-			<body>AIRobot</body>
-			<baseBodySize>1</baseBodySize>
-			<baseHungerRate>0.5</baseHungerRate>
-			<baseHealthScale>0.6</baseHealthScale>
-		</race>
 		<recipes>
 		</recipes>
 		<robotWorkTypes>
@@ -413,53 +340,39 @@
 		</robotSkills>
 		<destroyedDef>AIRobot_Miner_disabled</destroyedDef>
 		<allowLearning>false</allowLearning>
-	</ThingDef>
+	</Verse.ThingDef>
 	<!-- Hunter-Killer -->
-	<!-- Errors Out since a17 new assembly
-    <ThingDef Class="AIRobot.X2_ThingDef_AIRobot" ParentName="Base_X2_AIRobot">
+	<!--
+    <Verse.ThingDef Class="AIRobot.X2_ThingDef_AIRobot" ParentName="Base_X2_AIRobot">
         <defName>AIRobot_HK</defName>
         <label>Hunter-Killer</label>
         <description>A HK Bot. WARNING: Death may occur upon interaction.</description>
         <uiIconPath>Things/Pawn/Humanlike/UI/IconHuman</uiIconPath>
 		<inspectorTabs>
-			<li>Combat_Realism.ITab_Inventory</li>
+			<li>CombatExtended.ITab_Inventory</li>
 			<li>ITab_Pawn_Character</li>
 		</inspectorTabs>
 		<comps>
 			<li>
-				<compClass>Combat_Realism.CompInventory</compClass>
+				<compClass>CombatExtended.CompPawnGizmo</compClass>
 			</li>
 			<li>
-				<compClass>Combat_Realism.CompPawnGizmo</compClass>
+				<compClass>CombatExtended.CompInventory</compClass>
 			</li>
-        </comps>
+		</comps>
         <statBases>
             <MarketValue>5000</MarketValue>
             <MoveSpeed>5.35</MoveSpeed>
-            <ComfyTemperatureMin>-100</ComfyTemperatureMin>
-            <ComfyTemperatureMax>100</ComfyTemperatureMax>
 			<ArmorRating_Heat>5</ArmorRating_Heat>
 			<ArmorRating_Blunt>1.3</ArmorRating_Blunt>
 			<ArmorRating_Sharp>1.3</ArmorRating_Sharp>
 			<ArmorRating_Electric>2</ArmorRating_Electric>
-			<ArmorPenetration>1.3</ArmorPenetration>
-			<CarryWeight>200</CarryWeight>
 			<CarryBulk>180</CarryBulk>
+			<MeleeDodgeChance>0.3</MeleeDodgeChance>
+			<MeleeCritChance>0.35</MeleeCritChance>
         </statBases>
-        <verbs>
-            <li>                
-				<verbClass>Verb_MeleeAttack</verbClass>
-				<defaultCooldownTime>1.20</defaultCooldownTime>
-				<meleeDamageBaseAmount>40</meleeDamageBaseAmount>
-				<meleeDamageDef>Cut</meleeDamageDef>
-                <linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
-            </li>
-        </verbs>
 		<race>
 			<body>HKRobot</body>
-			<intelligence>Humanlike</intelligence>
-			<baseBodySize>1.0</baseBodySize>
-			<baseHungerRate>0.5</baseHungerRate>
 			<baseHealthScale>7</baseHealthScale>
 		</race>
 		<recipes>
@@ -484,6 +397,6 @@
 		</robotSkills>
 		<destroyedDef>AIRobot_HK_disabled</destroyedDef>
 		<allowLearning>false</allowLearning>
-	</ThingDef>
+	</Verse.ThingDef>
 	-->
 </ThingDefs>

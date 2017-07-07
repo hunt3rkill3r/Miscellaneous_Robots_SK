@@ -217,7 +217,7 @@
 		</CostList>
 	</ThingDef>
 	<!-- HK -->
-	<!-- Errors Out since a17 new assembly
+	<!--
 	<ThingDef ParentName="DisabledBase">
 		<defName>AIRobot_HK_disabled</defName>
 		<label>Hunter-Killer (disabled)</label>

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
 	<!-- Hauler -->
-    <PawnKindDef>
+    <Verse.PawnKindDef>
         <defName>AIRobot_Hauler</defName>
         <label>HaulBot</label>
         <race>AIRobot_Hauler</race>
@@ -46,9 +46,9 @@
         <apparelAllowHeadwearChance>0.04</apparelAllowHeadwearChance>
         <backstoryCryptosleepCommonality>0</backstoryCryptosleepCommonality>
         <forceNormalGearQuality>true</forceNormalGearQuality>
-    </PawnKindDef>
+    </Verse.PawnKindDef>
 	<!-- Cleaner -->
-    <PawnKindDef>
+    <Verse.PawnKindDef>
         <defName>AIRobot_Cleaner</defName>
         <label>JanitorBot</label>
         <race>AIRobot_Cleaner</race>
@@ -93,9 +93,9 @@
         <apparelAllowHeadwearChance>0.04</apparelAllowHeadwearChance>
         <backstoryCryptosleepCommonality>0</backstoryCryptosleepCommonality>
         <forceNormalGearQuality>true</forceNormalGearQuality>
-    </PawnKindDef>
+    </Verse.PawnKindDef>
 	<!-- Crafter -->
-    <PawnKindDef>
+    <Verse.PawnKindDef>
         <defName>AIRobot_Crafter</defName>
         <label>CraftBot</label>
         <race>AIRobot_Crafter</race>
@@ -140,9 +140,9 @@
         <apparelAllowHeadwearChance>0.04</apparelAllowHeadwearChance>
         <backstoryCryptosleepCommonality>0</backstoryCryptosleepCommonality>
         <forceNormalGearQuality>true</forceNormalGearQuality>
-    </PawnKindDef>
+    </Verse.PawnKindDef>
 	<!-- Doctor -->
-    <PawnKindDef>
+    <Verse.PawnKindDef>
         <defName>AIRobot_Doctor</defName>
         <label>MedBot</label>
         <race>AIRobot_Doctor</race>
@@ -187,9 +187,9 @@
         <apparelAllowHeadwearChance>0.04</apparelAllowHeadwearChance>
         <backstoryCryptosleepCommonality>0</backstoryCryptosleepCommonality>
         <forceNormalGearQuality>true</forceNormalGearQuality>
-    </PawnKindDef>
+    </Verse.PawnKindDef>
 	<!-- Cook -->
-    <PawnKindDef>
+    <Verse.PawnKindDef>
         <defName>AIRobot_Cook</defName>
         <label>CookBot</label>
         <race>AIRobot_Cook</race>
@@ -234,9 +234,9 @@
         <apparelAllowHeadwearChance>0.04</apparelAllowHeadwearChance>
         <backstoryCryptosleepCommonality>0</backstoryCryptosleepCommonality>
         <forceNormalGearQuality>true</forceNormalGearQuality>
-    </PawnKindDef>
+    </Verse.PawnKindDef>
 	<!-- Grower -->
-    <PawnKindDef>
+    <Verse.PawnKindDef>
         <defName>AIRobot_Grower</defName>
         <label>HydroponicsBot</label>
         <race>AIRobot_Grower</race>
@@ -281,9 +281,9 @@
         <apparelAllowHeadwearChance>0.04</apparelAllowHeadwearChance>
         <backstoryCryptosleepCommonality>0</backstoryCryptosleepCommonality>
         <forceNormalGearQuality>true</forceNormalGearQuality>
-    </PawnKindDef>
+    </Verse.PawnKindDef>
 	<!-- Miner -->
-    <PawnKindDef>
+    <Verse.PawnKindDef>
         <defName>AIRobot_Miner</defName>
         <label>MinerBot</label>
         <race>AIRobot_Miner</race>
@@ -328,10 +328,10 @@
         <apparelAllowHeadwearChance>0.04</apparelAllowHeadwearChance>
         <backstoryCryptosleepCommonality>0</backstoryCryptosleepCommonality>
         <forceNormalGearQuality>true</forceNormalGearQuality>
-    </PawnKindDef>
+    </Verse.PawnKindDef>
 	<!-- Hunter-Killer -->
-	<!-- Errors Out since a17 new assembly
-	<PawnKindDef>
+	<!--
+	<Verse.PawnKindDef>
         <defName>AIRobot_HK</defName>
         <label>Hunter-Killer</label>
         <race>AIRobot_HK</race>
@@ -345,7 +345,7 @@
                 <bodyGraphicData>
                     <texPath>Things/AIRobot/HK</texPath>
                     <graphicClass>Graphic_Multi</graphicClass>
-                    <drawSize>1</drawSize>
+                    <drawSize>1.6</drawSize>
                     <shadowData>
                         <volume>(0.4, 0.2, 0.4)</volume>
                         <offset>(0,0,0)</offset>
@@ -358,11 +358,46 @@
 		  <max>8000</max>
 		</weaponMoney>
 		<weaponTags>
-		  <li>MechanoidGunHeavy</li>
-		</weaponTags>
-		<fixedInventory>
-		  <LoadoutGen_AmmoTypeJ>1</LoadoutGen_AmmoTypeJ>
-		</fixedInventory>
+            <li>ADR2</li>
+        </weaponTags>
+        <modExtensions>
+            <li Class="CombatExtended.LoadoutPropertiesExtension">
+                <primaryMagazineCount>
+                    <min>39</min>
+                    <max>40</max>
+                </primaryMagazineCount>
+                <sidearms>
+                    <li>
+                        <generateChance>0.7</generateChance>
+                        <sidearmMoney>
+                            <min>250</min>
+                            <max>350</max>
+                        </sidearmMoney>
+                        <weaponTags>
+                            <li>GrenadeDestructive</li>
+                        </weaponTags>
+                        <magazineCount>
+                            <min>1</min>
+                            <max>3</max>
+                        </magazineCount>
+                    </li>
+                    <li>
+                        <generateChance>0.6</generateChance>
+                        <sidearmMoney>
+                            <min>50</min>
+                            <max>150</max>
+                        </sidearmMoney>
+                        <weaponTags>
+                            <li>GrenadeFlashbang</li>
+                        </weaponTags>
+                        <magazineCount>
+                            <min>1</min>
+                            <max>2</max>
+                        </magazineCount>
+                    </li>
+                </sidearms>
+            </li>
+        </modExtensions>
         <apparelTags>
             <li>Spacer</li>
         </apparelTags>
@@ -379,6 +414,6 @@
         <apparelAllowHeadwearChance>0.04</apparelAllowHeadwearChance>
         <backstoryCryptosleepCommonality>0</backstoryCryptosleepCommonality>
         <forceNormalGearQuality>true</forceNormalGearQuality>
-    </PawnKindDef>
+    </Verse.PawnKindDef>
 	-->
 </Defs>
